@@ -52,8 +52,8 @@
   outline: 0;
   padding: 4px 20px 0;
   width: 100%;
+  position: relative; /* Añade esta línea */
 }
-
 
 .iLabel {
   color: #65657b;
@@ -65,21 +65,15 @@
   transform-origin: 0 50%;
   transition: transform 200ms, color 200ms;
   top: 20px;
+  transform: translateY(-35px) translateX(-5px) scale(0.75); /* Añade esta línea */
 }
 
-.input:focus ~ .cut {
-  transform: translateY(8px);
+.input:not(:placeholder-shown) ~ .iLabel { /* Modifica esta línea */
+  transform: translateY(-35px) translateX(-5px) scale(0.75); /* Añade esta línea */
 }
 
 .input:focus ~ .iLabel {
   transform: translateY(-35px) translateX(-5px) scale(0.75);
-}
-
-.input:not(:focus) ~ .iLabel {
-  color: #808097;
-}
-
-.input:focus ~ .iLabel {
   color: #ffffff;
 }
 
@@ -95,12 +89,12 @@
   margin-top: 60px;
   text-align: center;
   width: 100%;
- 
 }
 
 .submit:active {
   background-color: #06b;
 }
+
 
 /* CONFIRMAR EMAIL */
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-
 const RegisterUsuario = () => {
   const [usuario, setUsuario] = useState({
     username: '',
@@ -21,6 +20,12 @@ const RegisterUsuario = () => {
       console.log(response.data);
       setMensaje('Usuario registrado correctamente. Revisa tu correo electrónico para confirmar tu cuenta.');
       alert('Usuario registrado correctamente. Revisa tu correo electrónico para confirmar tu cuenta.');
+      // Limpiar el formulario después del envío exitoso
+      setUsuario({
+        username: '',
+        email: '',
+        password: ''
+      });
     } catch (error) {
       console.error(error);
       setMensaje('Error al registrar el usuario');
@@ -76,7 +81,6 @@ const RegisterUsuario = () => {
           <button className="submit" type="submit">Registrar</button>
         </form>
 
-        {mensaje && <p className="message">{mensaje}</p>}
       </div>
     </div>
   );
